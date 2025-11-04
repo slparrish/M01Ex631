@@ -8,23 +8,36 @@ import java.util.Scanner;
 public class CCValidator {
 
     public static boolean isValid(long number) {
+        int sumEven = sumOfDoubleEvenPlace(number);
+        int sumOdd = sumOfOddPlace(number);
+        int total = sumEven + sumOdd;
+        System.out.println("sumEven: " + sumEven + " sumOdd: " + sumOdd + " total: " + total);
+        if (total % 10 == 0) {
+            return true;
+        }
+        return false;
+    }
+    public static int sumOfDoubleEvenPlace(long number) {
         String numberString = Long.toString(number);
-        //System.out.println(numberString.length());
         int counter = 0;
+        int sum = 0;
+        // Loop through CC number from right to left
         for (int i = numberString.length() - 1; i >= 0; i--) {
-
+            // only want even numbers from right
             if (counter % 2 != 0) {
                 System.out.println("right number: " + numberString.charAt(i));
                 int numeric = Character.getNumericValue(numberString.charAt(i));
-                getDigit(numeric);
+                System.out.println("getDigit(): " + getDigit(numeric));
+                // get doubled digit and add it to sum
+                sum += getDigit(numeric);
             }
             counter++;
         }
-        return true;
+        return sum;
     }
-    public static int sumOfDoubleEvenPlace(long number) {
-        return 0;
-    }
+    // getDigit() doubles the number from sumOfDoubleEvenPlace() and
+    // returns either the doubled result (number) or the two digits
+    // added together if they are greater than 9 (combo)
     public static int getDigit(int number) {
         number = number * 2;
         if (number > 9) {
@@ -36,7 +49,22 @@ public class CCValidator {
         return number;
     }
     public static int sumOfOddPlace(long number) {
-        return 0;
+        String numberString = Long.toString(number);
+        int counter = 0;
+        int sum = 0;
+        // Loop through CC number from right to left
+        for (int i = numberString.length() - 1; i >= 0; i--) {
+            // only want odd numbers from right
+            if (counter % 2 == 0) {
+                System.out.println("odd number: " + numberString.charAt(i));
+                int numeric = Character.getNumericValue(numberString.charAt(i));
+                // System.out.println("getDigit(): " + getDigit(numeric));
+                // get doubled digit and add it to sum
+                sum += numeric;
+            }
+            counter++;
+        }
+        return sum;
     }
     public static boolean prefixMatched(long number, int d) {
         return true;
