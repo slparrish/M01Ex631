@@ -16,14 +16,7 @@ public class CCValidator {
             if (counter % 2 != 0) {
                 System.out.println("right number: " + numberString.charAt(i));
                 int numeric = Character.getNumericValue(numberString.charAt(i));
-                numeric = numeric * 2;
-                System.out.println("doubled " + numeric);
-                if (numeric > 9) {
-                    String splitDoubledStr = Integer.toString(numeric);
-                    int combo = Character.getNumericValue(splitDoubledStr.charAt(0)) + Character.getNumericValue(splitDoubledStr.charAt(1));
-                    System.out.println("combo " + combo);
-                }
-
+                getDigit(numeric);
             }
             counter++;
         }
@@ -33,7 +26,14 @@ public class CCValidator {
         return 0;
     }
     public static int getDigit(int number) {
-        return 0;
+        number = number * 2;
+        if (number > 9) {
+            String splitDoubledStr = Integer.toString(number);
+            int combo = Character.getNumericValue(splitDoubledStr.charAt(0)) + Character.getNumericValue(splitDoubledStr.charAt(1));
+            System.out.println("combo " + combo);
+            return combo;
+        }
+        return number;
     }
     public static int sumOfOddPlace(long number) {
         return 0;
