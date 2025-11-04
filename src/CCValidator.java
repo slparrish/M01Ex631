@@ -9,10 +9,14 @@ public class CCValidator {
 
     public static boolean isValid(long number) {
         String numberString = Long.toString(number);
+        //System.out.println(numberString.length());
+        int counter = 0;
         for (int i = numberString.length() - 1; i >= 0; i--) {
-        if (i % 2 != 0) {
+
+            if (counter % 2 != 0) {
                 System.out.println(numberString.charAt(i));
             }
+            counter++;
         }
         return true;
     }
