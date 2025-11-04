@@ -1,6 +1,17 @@
+import java.util.Scanner;
+
+// Scott L. Parrish 11/3/2025
+// SDEV 200 Module 1 Exercise 6.31
+// CCValidator class a class to implement the Luhn Check algorithm
+// to validate credit card numbers including example code demonstrating
+// its use.
 public class CCValidator {
 
     public static boolean isValid(long number) {
+        String numberString = Long.toString(number);
+        char[] charArray = numberString.toCharArray();
+
+        System.out.println(charArray[charArray.length -2]);
         return true;
     }
     public static int sumOfDoubleEvenPlace(long number) {
@@ -23,13 +34,13 @@ public class CCValidator {
     }
 
     public static void main(String[] args) {
-        java.util.Scanner input = new java.util.Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.print("Enter a credit card number as a long integer: ");
-        long ccnum = input.nextLong();
-        if (isValid(ccnum)) {
-            System.out.println(ccnum + " is valid");
+        long cardNumber = input.nextLong();
+        if (isValid(cardNumber)) {
+            System.out.println(cardNumber + " is valid");
         } else {
-            System.out.println(ccnum + " is not valid");
+            System.out.println(cardNumber + " is not valid");
         }
     }
 }
