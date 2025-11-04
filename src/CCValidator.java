@@ -73,7 +73,7 @@ public class CCValidator {
             // only want odd numbers from right
             if (counter % 2 == 0) {
                 int numeric = Character.getNumericValue(numberString.charAt(i));
-                // get doubled digit and add it to sum
+                // adds the next odd place number to sum
                 sum += numeric;
             }
             counter++;
