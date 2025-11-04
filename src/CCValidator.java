@@ -9,9 +9,11 @@ public class CCValidator {
 
     public static boolean isValid(long number) {
         String numberString = Long.toString(number);
-        char[] charArray = numberString.toCharArray();
-
-        System.out.println(charArray[charArray.length -2]);
+        for (int i = numberString.length() - 1; i >= 0; i--) {
+        if (i % 2 != 0) {
+                System.out.println(numberString.charAt(i));
+            }
+        }
         return true;
     }
     public static int sumOfDoubleEvenPlace(long number) {
