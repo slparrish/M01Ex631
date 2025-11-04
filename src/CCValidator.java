@@ -15,6 +15,15 @@ public class CCValidator {
 
             if (counter % 2 != 0) {
                 System.out.println(numberString.charAt(i));
+                int numeric = Character.getNumericValue(numberString.charAt(i));
+                numeric = numeric * 2;
+                System.out.println("doubled " + numeric);
+                if (numeric > 9) {
+                    String splitDoubledStr = Integer.toString(numeric);
+                    int combo = Character.getNumericValue(splitDoubledStr.charAt(0)) + Character.getNumericValue(splitDoubledStr.charAt(1));
+                    System.out.println("combo " + combo);
+                }
+
             }
             counter++;
         }
