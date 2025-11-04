@@ -6,16 +6,16 @@ import java.util.Scanner;
 // to validate credit card numbers including example code demonstrating
 // its use.
 public class CCValidator {
-
+    // isValid accepts card number as a long number and returns the result of the Luhn
+    // algorithm (is the total divisible by 10 or not)
     public static boolean isValid(long number) {
-        int sumEven = sumOfDoubleEvenPlace(number);
-        int sumOdd = sumOfOddPlace(number);
-        int total = sumEven + sumOdd;
+        int sumEven = sumOfDoubleEvenPlace(number); // sum of double even or added digits
+        int sumOdd = sumOfOddPlace(number); // sum of the odd places
+        int total = sumEven + sumOdd; // add em up
         System.out.println("sumEven: " + sumEven + " sumOdd: " + sumOdd + " total: " + total);
-        if (total % 10 == 0) {
-            return true;
-        }
-        return false;
+        // intellij had me simplify my if else to this.  It is less readable IMO but in this
+        // mess, it's ok.
+        return total % 10 == 0;
     }
     public static int sumOfDoubleEvenPlace(long number) {
         String numberString = Long.toString(number);
@@ -66,6 +66,8 @@ public class CCValidator {
         }
         return sum;
     }
+    // I am sure the next 3 methods are supposed to do something but I am
+    // not sure what and my brain is too fried rn to care.
     public static boolean prefixMatched(long number, int d) {
         return true;
     }
@@ -76,6 +78,8 @@ public class CCValidator {
         return 0;
     }
 
+    // main method to test and demonstrate the class.  Accepts card number entered
+    // by the user and sends the number to isValid() for boolean result.
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a credit card number as a long integer: ");
