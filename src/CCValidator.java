@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-// Scott L. Parrish 11/3/2025
+// Scott L. Parrish 01/21/2026
 // SDEV 200 Module 1 Exercise 6.31
 // CCValidator class a class to implement the Luhn Check algorithm
 // to validate credit card numbers including example code demonstrating
